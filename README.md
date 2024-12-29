@@ -27,7 +27,7 @@ git clone https://github.com/ZalaNihir/adminlte-laravel10.git
 - Go into folder
 
 ```php
-cd adminlte-laravel10
+cd garbage-collection-system-laravel-adminlte
 ```
 
 - After the installation you have to update the vendor folder you can update the vendor folder using this command.
