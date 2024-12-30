@@ -11,7 +11,7 @@
 
         <li class="nav-item has-treeview {{ Route::is('admin.house.index') || Route::is('admin.house.create') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::is('admin.house.index') ? 'active' : '' }}">
-                <i class="nav-icon fas fa-cogs"></i>
+                <i class="nav-icon fas fa-home"></i>
                 <p>
                     Houses
                     <i class="right fas fa-angle-left"></i>
@@ -60,7 +60,7 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-none">
             <a href="{{ route('admin.category.index') }}"
                 class="nav-link {{ Route::is('admin.category.index') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-list-alt"></i>
@@ -69,7 +69,7 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-none">
             <a href="{{ route('admin.subcategory.index') }}"
                 class="nav-link {{ Route::is('admin.subcategory.index') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-list"></i>
@@ -78,7 +78,7 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-none">
             <a href="{{ route('admin.collection.index') }}"
                 class="nav-link {{ Route::is('admin.collection.index') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-file-pdf"></i>
@@ -87,7 +87,7 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-none">
             <a href="{{ route('admin.product.index') }}"
                 class="nav-link {{ Route::is('admin.product.index') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-th"></i>
