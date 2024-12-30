@@ -15,7 +15,7 @@ use Illuminate\Support\Str;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// TODO: Need to remove these
 Route::get('/qrcode', [QrCodeController::class, 'show']);
 Route::get('/qrd', [QrCodeController::class, 'download']);
 

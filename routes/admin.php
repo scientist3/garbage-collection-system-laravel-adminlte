@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\DustbinTypesController;
 use App\Http\Controllers\GarbageCollectionController;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\ProfileController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubCateoryController;
+use App\Models\DustbinTypes;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(function () {
@@ -26,6 +28,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
         Route::resource('collection', CollectionController::class);
         Route::resource('product', ProductController::class);
         Route::resource('house', HouseController::class);
+        // Route::resource('dustbintypes', DustbinTypes::class);
+        Route::resource('dustbin_types', DustbinTypesController::class);
         // Route::resource('collection', GarbageCollectionController::class);
         Route::get('/get/subcategory', [ProductController::class, 'getsubcategory'])->name('getsubcategory');
         Route::get('/remove-external-img/{id}', [ProductController::class, 'removeImage'])->name('remove.image');

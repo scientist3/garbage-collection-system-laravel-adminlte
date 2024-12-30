@@ -23,5 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(WardSeeder::class);
         $this->call(CollectionSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(DustinTypeSeeder::class);
+        $this->call(DustinSeeder::class);
+        $this->call(PickupRecordsSeeder::class);
     }
 }

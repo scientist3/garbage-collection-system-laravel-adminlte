@@ -33,6 +33,29 @@
             </ul>
         </li>
 
+        <li class="nav-item has-treeview {{ Route::is('admin.dustbin_types.index') || Route::is('admin.dustbin_types.create') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ Route::is('admin.dustbin_types.index') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-trash-alt"></i>
+                <p>
+                    Dustbin Types
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.dustbin_types.create') }}" class="nav-link {{ Route::is('admin.dustbin_types.create') ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Create Dustbin Types</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.dustbin_types.index') }}" class="nav-link {{ Route::is('admin.dustbin_types.index') ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>View Dustbin Types</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li class="nav-item">
             <a href="{{ route('admin.user.index') }}"
                 class="nav-link {{ Route::is('admin.user.index') ? 'active' : '' }}">
