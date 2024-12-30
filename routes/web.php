@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginWithOTPController;
+use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\SocialiteController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -14,6 +15,9 @@ use Illuminate\Support\Str;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/qrcode', [QrCodeController::class, 'show']);
+Route::get('/qrd', [QrCodeController::class, 'download']);
 
 Route::get('/', function () {
     // $readmePath = base_path('README.md');
