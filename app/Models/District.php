@@ -8,29 +8,30 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class State extends Model
+class District extends Model
 {
+    // use HasFactory;
     use SoftDeletes;
 
     protected $fillable = [
         'id',
-        'country_id',
+        'city_id',
         'name',
         'status'
     ];
 
-    public function cities(): HasMany
+    public function city()
     {
-        return $this->hasMany(City::class);
+        return $this->belongsTo(City::class);
     }
 
-    public function country(): BelongsTo
+    public function tensil()
     {
-        return $this->belongsTo(Country::class);
+        return $this->hasMany(Tehsil::class);
     }
 
-    public function district(): HasManyThrough
+    public function panchayat(): HasManyThrough
     {
-        return $this->hasManyThrough(District::class, City::class);
+        return $this->hasManyThrough(Panchayat::class, Tehsil::class);
     }
 }
