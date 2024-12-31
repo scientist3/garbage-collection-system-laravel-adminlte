@@ -11,10 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('house_types', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique(); // e.g., Single, Family, Group
+            $table->timestamps();
+        });
+
         Schema::create('houses', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id('id');
 
             // Adding foreign key references for State, City, District, Tehsil, Panchayat, Ward
+            $table->unsignedBigInteger('house_type_id');
             $table->unsignedBigInteger('state_id');
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('district_id');
@@ -28,12 +35,13 @@ return new class extends Migration
             $table->string('parentage');
             $table->string('phone_no');
             $table->string('location');
-            $table->string('wet_garbage_qr');
-            $table->string('dry_garbage_qr');
+            $table->enum('account_status', ['Active', 'Inactive']);
+
 
             $table->timestamps();
 
             // Setting up foreign key constraints
+            $table->foreign('house_type_id')->references('id')->on('house_types')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
@@ -49,5 +57,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('houses');
+        Schema::dropIfExists('house_types');
     }
 };

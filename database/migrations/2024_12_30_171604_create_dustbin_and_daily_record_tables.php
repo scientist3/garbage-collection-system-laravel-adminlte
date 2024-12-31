@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create("dustbin_types", function (Blueprint $table) {
-            $table->bigIncrements("id");
+            $table->id("id");
             $table->string("name");
             // $table->timestamps();
         });
 
         Schema::create('dustbins', function (Blueprint $table) {
-            //$table->bigIncrements('id');
+            $table->id('id');
             $table->string('dustbin_code')->unique();
             $table->foreignId('dustbin_type_id')->references('id')->on('dustbin_types')->onDelete('cascade')->onUpdate('cascade'); //, ['Dry', 'Wet']
             $table->foreignId('houses_id')->references('id')->on('houses')->onDelete('cascade')->onUpdate('cascade');
