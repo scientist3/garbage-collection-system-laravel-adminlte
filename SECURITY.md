@@ -28,6 +28,6 @@ This project has adopted a [Code of Conduct](CODE_OF_CONDUCT.md). Please review 
 
 Thank you for helping keep Lartavel secure!
 
-Nihir Zala
+Aamir Bashir
 
 [testnihir@gmail.com]: mailto:testnihir@gmail.com

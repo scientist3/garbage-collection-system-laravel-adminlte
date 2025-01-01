@@ -50,4 +50,4 @@ By contributing to this project, you agree that your contributions will be licen
 
 Thank you for your contributions!
 
-Nihir Zala
+Aamir Bashir

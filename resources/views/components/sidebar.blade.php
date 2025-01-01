@@ -19,15 +19,9 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ route('admin.house.create') }}" class="nav-link {{ Route::is('admin.house.create') ? 'active' : '' }}">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Create Houses</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('admin.house.index') }}" class="nav-link {{ Route::is('admin.house.index') ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>View Houses</p>
+                        <p>Create / View Houses</p>
                     </a>
                 </li>
             </ul>
@@ -69,7 +63,7 @@
             </ul>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item d-none">
             <a href="{{ route('admin.user.index') }}"
                 class="nav-link {{ Route::is('admin.user.index') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-user"></i>
@@ -78,7 +72,7 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-none">
             <a href="{{ route('admin.role.index') }}"
                 class="nav-link {{ Route::is('admin.role.index') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-user-tag"></i>
@@ -87,7 +81,7 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-none">
             <a href="{{ route('admin.permission.index') }}"
                 class="nav-link {{ Route::is('admin.permission.index') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-hat-cowboy"></i>
@@ -173,7 +167,7 @@
                 </li>
 
                 <!-- House Type Menu -->
-                <li class="nav-item {{ Route::is('admin.house_type.index') || Route::is('admin.house_type.create') ? 'menu-open' : '' }}">
+                <li class="nav-item d-none {{ Route::is('admin.house_type.index') || Route::is('admin.house_type.create') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="fas fa-home nav-icon"></i>
                         <p> House Type <i class="right fas fa-angle-left"></i> </p>
