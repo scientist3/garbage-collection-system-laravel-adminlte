@@ -15,6 +15,7 @@ class HousesSeeder extends Seeder
     {
         House::insertOrIgnore([
             'id' => 1,
+            'house_type_id' => 1,
             'state_id' => 15,
             'city_id' => 1341,
             'district_id' => 2,
@@ -26,8 +27,7 @@ class HousesSeeder extends Seeder
             'parentage' => 'Bashir Ahmad Sofi',
             'phone_no' => '7006123265',
             'location' => 'https://maps.app.goo.gl/PW5dNKQo78NZTQ648',
-            'wet_garbage_qr' => '123',
-            'dry_garbage_qr' => '1234',
+            'account_status' => 'Active',
             'created_at' => '2024-12-30 00:00:00',
             'updated_at' => '2024-12-30 00:00:00',
         ]);
