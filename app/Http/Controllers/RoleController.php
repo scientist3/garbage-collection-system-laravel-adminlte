@@ -9,7 +9,7 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $data = Role::orderBy('id','DESC')->get();
+        $data = Role::orderBy('id', 'DESC')->get();
         return view('admin.role.index', compact('data'));
     }
 
@@ -20,33 +20,35 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|unique:roles|max:255',
-        ]);
+        // $request->validate([
+        //     'name' => 'required|unique:roles|max:255',
+        // ]);
+
         Role::updateOrCreate(
             [
-                'id'=>$request->id
-            ],[
-                'name'=>$request->name,
+                'id' => $request->id ?? null
+            ],
+            [
+                'name' => $request->name,
             ]
         );
-        if($request->id){
+        if ($request->id) {
             $msg = 'Role updated successfully.';
-        }else{
+        } else {
             $msg = 'Role created successfully.';
         }
-        return redirect()->route('admin.role.index')->with('success',$msg);
+        return redirect()->route('admin.role.index')->with('success', $msg);
     }
 
     public function edit($id)
     {
-        $data = Role::where('id',decrypt($id))->first();
-        return view('admin.role.edit',compact('data'));
+        $data = Role::where('id', decrypt($id))->first();
+        return view('admin.role.edit', compact('data'));
     }
 
     public function destroy($id)
     {
-        Role::where('id',decrypt($id))->delete();
-        return redirect()->route('admin.role.index')->with('error','Role deleted successfully.');
+        Role::where('id', decrypt($id))->delete();
+        return redirect()->route('admin.role.index')->with('error', 'Role deleted successfully.');
     }
 }
