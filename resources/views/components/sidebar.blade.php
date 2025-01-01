@@ -33,7 +33,7 @@
             </ul>
         </li>
 
-        <li class="nav-item has-treeview {{ Route::is('admin.dustbin_types.index') || Route::is('admin.dustbin_types.create') ? 'menu-open' : '' }}">
+        <li class=" d-none nav-item has-treeview {{ Route::is('admin.dustbin_types.index') || Route::is('admin.dustbin_types.create') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::is('admin.dustbin_types.index') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-trash-alt"></i>
                 <p>
@@ -43,19 +43,32 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ route('admin.dustbin_types.create') }}" class="nav-link {{ Route::is('admin.dustbin_types.create') ? 'active' : '' }}">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Create Dustbin Types</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('admin.dustbin_types.index') }}" class="nav-link {{ Route::is('admin.dustbin_types.index') ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>View Dustbin Types</p>
+                        <p>Create / View</p>
                     </a>
                 </li>
             </ul>
         </li>
+
+        <li class="nav-item has-treeview {{ Route::is('admin.dustbins.index') || Route::is('admin.dustbins.create') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ Route::is('admin.dustbins.index') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-trash-alt"></i>
+                <p>
+                    Dustbin
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.dustbins.index') }}" class="nav-link {{ Route::is('admin.dustbin_types.index') ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Create / View</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         <li class="nav-item">
             <a href="{{ route('admin.user.index') }}"
                 class="nav-link {{ Route::is('admin.user.index') ? 'active' : '' }}">
@@ -118,6 +131,63 @@
                     <span class="badge badge-warning right">{{ $ProductCount }}</span>
                 </p>
             </a>
+        </li>
+
+        <li class="nav-item has-treeview {{ Route::is('admin.house_type.index') || Route::is('admin.house_type.create') || Route::is('admin.dustbin_types.index') || Route::is('admin.dustbin_types.create') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-cogs"></i>
+                <p> Setings <i class="right fas fa-angle-left"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+
+                <!-- Dustbin Type Menu -->
+                <li class="nav-item {{ Route::is('admin.dustbin_types.index') || Route::is('admin.dustbin_types.create') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-trash nav-icon"></i>
+                        <p> Dustbin Type <i class="right fas fa-angle-left"></i> </p>
+                    </a>
+                    <ul class="nav nav-treeview {{ Route::is('admin.dustbin_types.index') || Route::is('admin.dustbin_types.create') ? 'menu-open' : '' }}">
+                        <li class=" nav-item ">
+                            <a href="{{ route('admin.dustbin_types.index') }}" class="nav-link {{ Route::is('admin.dustbin_types.index') || Route::is('admin.dustbin_types.create') ? 'active' : '' }}">
+                                <i class="far {{ Route::is('admin.dustbin_types.index') || Route::is('admin.dustbin_types.create') ? 'fa-dot-circle' : 'fa-circle' }} nav-icon"></i>
+                                <p>Create / View</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- House Type Menu -->
+                <li class="nav-item {{ Route::is('admin.house_type.index') || Route::is('admin.house_type.create') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-home nav-icon"></i>
+                        <p> House Type <i class="right fas fa-angle-left"></i> </p>
+                    </a>
+                    <ul class="nav nav-treeview {{ Route::is('admin.house_type.index') || Route::is('admin.house_type.create') ? 'menu-open' : '' }}">
+                        <li class=" nav-item ">
+                            <a href="{{ route('admin.house_type.index') }}" class="nav-link {{ Route::is('admin.house_type.index') || Route::is('admin.house_type.create') ? 'active' : '' }}">
+                                <i class="far {{ Route::is('admin.house_types.index') || Route::is('admin.house_types.create') ? 'fa-dot-circle' : 'fa-circle' }} nav-icon"></i>
+                                <p>Create / View</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- House Type Menu -->
+                <li class="nav-item {{ Route::is('admin.house_type.index') || Route::is('admin.house_type.create') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-home nav-icon"></i>
+                        <p> House Type <i class="right fas fa-angle-left"></i> </p>
+                    </a>
+                    <ul class="nav nav-treeview {{ Route::is('admin.house_type.index') || Route::is('admin.house_type.create') ? 'menu-open' : '' }}">
+                        <li class=" nav-item ">
+                            <a href="{{ route('admin.house_type.index') }}" class="nav-link {{ Route::is('admin.house_type.index') || Route::is('admin.house_type.create') ? 'active' : '' }}">
+                                <i class="far {{ Route::is('admin.house_types.index') || Route::is('admin.house_types.create') ? 'fa-dot-circle' : 'fa-circle' }} nav-icon"></i>
+                                <p>Create / View</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </li>
         @endrole
         <li class="nav-item">

@@ -44,7 +44,7 @@
                                     <form action="{{ route('admin.dustbin_types.destroy', $dustbinType->id) }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this dustbin type?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>
