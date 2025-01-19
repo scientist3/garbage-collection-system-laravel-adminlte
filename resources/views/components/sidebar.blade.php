@@ -63,9 +63,9 @@
             </ul>
         </li>
 
-        <li class="nav-item d-none">
+        <li class="nav-item">
             <a href="{{ route('admin.user.index') }}"
-                class="nav-link {{ Route::is('admin.user.index') ? 'active' : '' }}">
+                class="nav-link {{ Route::is('admin.user.index') || Route::is('admin.user.create') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-user"></i>
                 <p>Users
                     <span class="badge badge-info right">{{ $userCount }}</span>
@@ -182,6 +182,15 @@
                     </ul>
                 </li>
             </ul>
+        </li>
+        @endrole
+        @role('agency')
+        <li class="nav-item">
+            <a href="{{ route('pickup.index') }}"
+                class="nav-link {{ Route::is('pickup.index') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Pickup</p>
+            </a>
         </li>
         @endrole
         <li class="nav-item">

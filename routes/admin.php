@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\PickupController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubCateoryController;
 use Illuminate\Support\Facades\Route;
@@ -38,4 +39,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
         Route::get('/get/subcategory', [ProductController::class, 'getsubcategory'])->name('getsubcategory');
         Route::get('/remove-external-img/{id}', [ProductController::class, 'removeImage'])->name('remove.image');
     });
+});
+
+Route::middleware(['auth', 'verified', 'role:agency'])->group(function () {
+    Route::get('/scan/{code}', [PickupController::class, 'scan']);
+    Route::resource('pickup', PickupController::class);
 });

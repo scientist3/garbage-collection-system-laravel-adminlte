@@ -4,6 +4,8 @@ namespace App\View\Components;
 
 use App\Models\Category;
 use App\Models\Collection;
+use App\Models\House;
+use App\Models\Pickup;
 use App\Models\Product;
 use App\Models\User;
 use Closure;
@@ -18,16 +20,27 @@ class Dashboard extends Component
     public function __construct()
     {
         $user = User::count();
-        view()->share('user',$user);
-        
+        view()->share('user', $user);
+
         $category = Category::count();
-        view()->share('category',$category);
-        
+        view()->share('category', $category);
+
         $product = Product::count();
-        view()->share('product',$product);
-        
+        view()->share('product', $product);
+
         $collection = Collection::count();
-        view()->share('collection',$collection);
+        view()->share('collection', $collection);
+
+        $houseCount = House::count();
+        view()->share('houseCount', $houseCount);
+
+        // Todays pickup
+        $todaysPickup = Pickup::whereDate('pickup_datetime', today())->count();
+        view()->share('todaysPickup', $todaysPickup);
+
+        // total pickups
+        $totalPickups = Pickup::count();
+        view()->share('totalPickups', $totalPickups);
     }
 
     /**

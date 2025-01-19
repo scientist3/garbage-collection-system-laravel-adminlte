@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             'email' => 'testadmin@gmail.com',
             'password' => bcrypt('p$ssw#rd'),
         ])->assignRole('admin');
-        
+
         // \App\Models\User::factory()->create([
         //     'name' => 'User',
         //     'email' => 'testuser@gmail.com',
@@ -29,5 +29,11 @@ class UserSeeder extends Seeder
             'email' => 'testvendor@gmail.com',
             'password' => bcrypt('p$ssw#rd'),
         ])->assignRole('vendor');
+
+        \App\Models\User::factory()->create([
+            'name' => 'Agency Abc',
+            'email' => 'testagency@gmail.com',
+            'password' => bcrypt('p$ssw#rd'),
+        ])->assignRole('agency');
     }
 }
