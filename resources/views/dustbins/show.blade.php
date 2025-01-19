@@ -29,7 +29,7 @@
                         </tr>
                         <tr>
                             <th>QR Code</th>
-                            <td>{{$dustbin->qrcode}}</td>
+                            <td>{!! $dustbin->qrcode !!}</td>
                         </tr>
                     </table>
                 </div>

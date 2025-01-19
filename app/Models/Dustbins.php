@@ -34,13 +34,20 @@ class Dustbins extends Model
     {
         $from = [255, 0, 0];
         $to = [0, 0, 255];
+        // $serverUrl = $_SERVER['HTTP_HOST'] . '/scan/' . encrypt($this->dustbin_code);
+        // Get the IP address of the server
+        $serverIp = gethostbyname(gethostname());
 
+        // Construct the URL
+        $serverUrl = 'https://' . $serverIp . '/garbage-collection-system-laravel-adminlte/public/scan/' . encrypt($this->dustbin_code);
+        print_r($serverUrl);
+        // die();
         return QrCode::size(300)
             ->style('dot')
             ->eye('circle')
             ->gradient($from[0], $from[1], $from[2], $to[0], $to[1], $to[2], 'diagonal')
             ->margin(1)
-            ->generate($this->dustbin_code);
+            ->generate($serverUrl);
     }
 
     // houses_id refers to the house to which the dustbin belongs
