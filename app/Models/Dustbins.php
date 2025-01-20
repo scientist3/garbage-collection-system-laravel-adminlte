@@ -39,7 +39,11 @@ class Dustbins extends Model
         $serverIp = gethostbyname(gethostname());
 
         // Construct the URL
-        $serverUrl = 'https://' . $serverIp . '/garbage-collection-system-laravel-adminlte/public/scan/' . encrypt($this->dustbin_code);
+        if (app()->environment('production')) {
+            $serverUrl = 'https://gcsystem.newgreenlandschool.in/scan/' . encrypt($this->dustbin_code);
+        } else {
+            $serverUrl = 'https://' . $serverIp . '/garbage-collection-system-laravel-adminlte/public/scan/' . encrypt($this->dustbin_code);
+        }
         print_r($serverUrl);
         // die();
         return QrCode::size(300)
