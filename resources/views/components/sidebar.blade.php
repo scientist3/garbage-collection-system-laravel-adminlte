@@ -72,6 +72,14 @@
                 </p>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a href="{{ route('admin.pickup.index') }}"
+                class="nav-link {{ Route::is('admin.pickup.index') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-truck"></i>
+                <p>Pickup</p>
+            </a>
+        </li>
         <li class="nav-item d-none">
             <a href="{{ route('admin.role.index') }}"
                 class="nav-link {{ Route::is('admin.role.index') ? 'active' : '' }}">

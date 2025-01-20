@@ -52,7 +52,7 @@
             <div class="icon">
                 <i class="fa fa-home"></i>
             </div>
-            <a href="#" class="small-box-footer">View <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{ route('admin.house.index') }}" class="small-box-footer">View <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-6">

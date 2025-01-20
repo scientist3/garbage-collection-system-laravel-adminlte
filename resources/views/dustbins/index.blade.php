@@ -109,12 +109,12 @@
     @section('js')
     <script>
         $(function() {
-            // $('#dustbinsTable').DataTable({
-            //     "paging": true,
-            //     "searching": true,
-            //     "ordering": true,
-            //     "responsive": true,
-            // });
+            $('#dustbinsTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "responsive": true,
+            });
 
             $('.select2').select2({
                 theme: 'bootstrap4',

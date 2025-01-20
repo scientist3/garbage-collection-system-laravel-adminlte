@@ -21,7 +21,7 @@ abstract class StateDataProvider
             ['id' => '12', 'country_id' => '101', 'name' => 'gujarat'],
             ['id' => '13', 'country_id' => '101', 'name' => 'haryana'],
             ['id' => '14', 'country_id' => '101', 'name' => 'himachal pradesh'],
-            ['id' => '15', 'country_id' => '101', 'name' => 'jammu and kashmir'],
+            ['id' => '15', 'country_id' => '101', 'name' => 'Jammu and Kashmir'],
             ['id' => '16', 'country_id' => '101', 'name' => 'jharkhand'],
             ['id' => '17', 'country_id' => '101', 'name' => 'karnataka'],
             ['id' => '18', 'country_id' => '101', 'name' => 'kenmore'],

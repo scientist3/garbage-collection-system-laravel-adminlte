@@ -25,10 +25,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('countries', function (Blueprint $table) {
-            $table->string('iso2')->nullable();
-            $table->string('iso3')->nullable();
-            $table->string('numcode')->nullable();
-            $table->string('phonecode')->nullable();
+            $table->dropColumn('iso2');
+            $table->dropColumn('iso3');
+            $table->dropColumn('numcode');
+            $table->dropColumn('phonecode');
         });
     }
 };

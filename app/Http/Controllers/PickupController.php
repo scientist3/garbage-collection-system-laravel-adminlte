@@ -6,6 +6,7 @@ use App\Models\Dustbins;
 use Illuminate\Http\Request;
 use App\Models\Pickup;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PickupController extends Controller
 {
@@ -27,8 +28,7 @@ class PickupController extends Controller
     // Display a listing of the resource.
     public function index()
     {
-        $pickups = Pickup::all();
-        if (auth()->user()->role == 'admin') {
+        if (auth()->user()->roles->pluck('name')->first() == 'admin') {
             $pickups = Pickup::all();
         } else {
             $pickups = Pickup::where('scanned_by', auth()->user()->id)->get();

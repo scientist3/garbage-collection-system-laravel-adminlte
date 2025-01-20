@@ -172,16 +172,16 @@
                             <td>{{ $household->panchayat->name }}</td>
                             <td>{{ $household->ward->name }}</td>
                             <td>
-                                <a href="{{ route('admin.house.show', encrypt($household->id)) }}" class="btn btn-info btn-sm">
+                                <a href="{{ route('admin.house.show', encrypt($household->id)) }}" class="btn btn-info btn-xs">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{ route('admin.house.edit', encrypt($household->id)) }}" class="btn btn-warning btn-sm">
+                                <a href="{{ route('admin.house.edit', encrypt($household->id)) }}" class="btn btn-warning btn-xs">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <form action="{{ route('admin.house.destroy', encrypt($household->id)) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete this household?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">
+                                    <button type="submit" class="btn btn-danger btn-xs">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>

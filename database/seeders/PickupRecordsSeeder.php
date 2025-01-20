@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Pickup;
+use App\Models\User;
+use App\Models\Dustbins;
 use Illuminate\Database\Seeder;
-use App\Models\PickupRecords;
 
 class PickupRecordsSeeder extends Seeder
 {
@@ -13,37 +14,30 @@ class PickupRecordsSeeder extends Seeder
      */
     public function run(): void
     {
-        PickupRecords::insertOrIgnore([
-            [
-                'dustbin_code' => 'DB001',
-                'photo' => 'photo1.jpg',
-                'pickup_datetime' => '2023-10-01 08:00:00',
-                'status' => 'completed',
-                'scanned_by' => 1,
+        $users = User::pluck('id')->toArray();
+        $dustbins = Dustbins::pluck('id')->toArray();
+
+        $pickups = [];
+        for ($i = 1; $i <= 20; $i++) {
+            $user = $users[array_rand($users)];
+            $dustbin = $dustbins[array_rand($dustbins)];
+            $pickup_datetime = now()->subDays(rand(0, 30))->format('Y-m-d H:i:s');
+            $segregation_option = rand(0, 1) ? 'segregated' : 'non_segregated';
+            $segregation_types = $segregation_option === 'segregated' ? json_encode(array_rand(['dry' => 'dry', 'wet' => 'wet'], rand(1, 2))) : json_encode([]);
+
+            $pickups[] = [
+                'dustbin_code' => $dustbin,
+                'pickup_datetime' => $pickup_datetime,
+                'status' => rand(0, 1) ? 'completed' : 'pending',
+                'scanned_by' => $user,
                 'geo_coordinates' => '40.712776,-74.005974',
-                'pickup_method' => 'manual',
+                'segregation_option' => $segregation_option,
+                'segregation_types' => $segregation_types,
                 'remarks' => 'No issues',
-            ],
-            [
-                'dustbin_code' => 'DB002',
-                'photo' => 'photo2.jpg',
-                'pickup_datetime' => '2023-10-02 09:00:00',
-                'status' => 'completed',
-                'scanned_by' => 2,
-                'geo_coordinates' => '34.052235,-118.243683',
-                'pickup_method' => 'automated',
-                'remarks' => 'Overflowing',
-            ],
-            [
-                'dustbin_code' => 'DB003',
-                'photo' => 'photo3.jpg',
-                'pickup_datetime' => '2023-10-03 10:00:00',
-                'status' => 'pending',
-                'scanned_by' => 3,
-                'geo_coordinates' => '41.878113,-87.629799',
-                'pickup_method' => 'manual',
-                'remarks' => 'Delayed',
-            ],
-        ]);
+                'updated_by' => $user,
+            ];
+        }
+
+        Pickup::insertOrIgnore($pickups);
     }
 }

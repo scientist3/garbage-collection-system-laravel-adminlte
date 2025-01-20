@@ -23,10 +23,10 @@ class DatabaseSeeder extends Seeder
         $this->call(WardSeeder::class);
         $this->call(CollectionSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(HouseTypeSeeder::class);
+        $this->call(HousesSeeder::class);
         $this->call(DustbinTypeSeeder::class);
         $this->call(DustbinSeeder::class);
-        $this->call(HousesSeeder::class);
-        $this->call(HouseTypeSeeder::class);
         $this->call(PickupRecordsSeeder::class);
     }
 }

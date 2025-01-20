@@ -1,5 +1,6 @@
 <x-admin>
     @section('title', 'Pickup Records')
+
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card card-outline card-primary">
@@ -10,7 +11,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered dataTable">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -66,4 +67,16 @@
             </div>
         </div>
     </div>
+    @section('js')
+    <script>
+        $(function() {
+            $('.dataTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "responsive": true
+            });
+        });
+    </script>
+    @endsection
 </x-admin>

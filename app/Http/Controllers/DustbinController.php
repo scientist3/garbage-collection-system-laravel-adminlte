@@ -12,6 +12,13 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class DustbinController extends Controller
 {
+    //constructor
+    public function __construct()
+    {
+        // $this->middleware('auth');
+        set_time_limit(300);
+    }
+
     public function index()
     {
 

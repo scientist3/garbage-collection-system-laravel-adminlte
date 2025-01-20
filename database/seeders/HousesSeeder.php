@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\House;
+use Faker\Factory as Faker;
 
 class HousesSeeder extends Seeder
 {
@@ -13,23 +14,27 @@ class HousesSeeder extends Seeder
      */
     public function run(): void
     {
-        House::insertOrIgnore([
-            'id' => 1,
-            'house_type_id' => 1,
-            'state_id' => 15,
-            'city_id' => 1341,
-            'district_id' => 2,
-            'tehsil_id' => 13,
-            'panchayat_id' => 5,
-            'ward_id' => 4,
-            'village' => 'Safapora',
-            'house_owner_name' => 'Aamir Bashir',
-            'parentage' => 'Bashir Ahmad Sofi',
-            'phone_no' => '7006123265',
-            'location' => 'https://maps.app.goo.gl/PW5dNKQo78NZTQ648',
-            'account_status' => 'Active',
-            'created_at' => '2024-12-30 00:00:00',
-            'updated_at' => '2024-12-30 00:00:00',
-        ]);
+        $faker = Faker::create();
+
+        for ($i = 1; $i <= 50; $i++) {
+            House::insertOrIgnore([
+                'id' => $i,
+                'house_type_id' => 1,
+                'state_id' => 15,
+                'city_id' => 1341,
+                'district_id' => 2,
+                'tehsil_id' => 13,
+                'panchayat_id' => 5,
+                'ward_id' => 4,
+                'village' => $faker->city,
+                'house_owner_name' => $faker->name,
+                'parentage' => $faker->name,
+                'phone_no' => $faker->phoneNumber,
+                'location' => $faker->url,
+                'account_status' => 'Active',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

@@ -33,6 +33,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
         Route::resource('house', HouseController::class);
         // Route::resource('dustbintypes', DustbinTypes::class);
         Route::resource('dustbin_types', DustbinTypesController::class);
+        Route::resource('pickup', PickupController::class);
         Route::get('/dustbins/check_dustbin_code', [DustbinController::class, 'checkDustbinCode'])->name('dustbins.check_dustbin_code');
         Route::resource('dustbins', DustbinController::class);
         // Route::resource('collection', GarbageCollectionController::class);
