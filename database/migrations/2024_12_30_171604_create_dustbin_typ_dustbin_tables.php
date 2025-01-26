@@ -20,14 +20,12 @@ return new class extends Migration
         Schema::create('dustbins', function (Blueprint $table) {
             $table->id('id');
             $table->string('dustbin_code')->unique();
-            $table->foreignId('dustbin_type_id')->references('id')->on('dustbin_types')->onDelete('cascade')->onUpdate('cascade'); //, ['Dry', 'Wet']
-            $table->foreignId('houses_id')->references('id')->on('houses')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('dustbin_type_id')->nullable()->references('id')->on('dustbin_types')->onDelete('set null')->onUpdate('cascade');
+            $table->foreignId('houses_id')->nullable()->references('id')->on('houses')->onDelete('set null')->onUpdate('cascade');
             $table->string('geo_coordinates'); // For storing latitude and longitude as a point
+            $table->text('qr_code')->nullable(); // Add a column to store the QR code
             $table->timestamps();
         });
-
-
-
     }
 
     /**
