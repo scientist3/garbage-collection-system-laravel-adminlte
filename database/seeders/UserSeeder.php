@@ -18,21 +18,33 @@ class UserSeeder extends Seeder
             'password' => bcrypt('p$ssw#rd'),
         ])->assignRole('admin');
 
+        \App\Models\User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('admin'),
+        ])->assignRole('admin');
+
         // \App\Models\User::factory()->create([
         //     'name' => 'User',
         //     'email' => 'testuser@gmail.com',
         //     'password' => bcrypt('p$ssw#rd'),
         // ])->assignRole('user');
 
-        \App\Models\User::factory()->create([
-            'name' => 'User',
-            'email' => 'testvendor@gmail.com',
-            'password' => bcrypt('p$ssw#rd'),
-        ])->assignRole('vendor');
+        // \App\Models\User::factory()->create([
+        //     'name' => 'User',
+        //     'email' => 'testvendor@gmail.com',
+        //     'password' => bcrypt('p$ssw#rd'),
+        // ])->assignRole('vendor');
 
         \App\Models\User::factory()->create([
-            'name' => 'Agency Abc',
-            'email' => 'testagency@gmail.com',
+            'name' => 'Agency Safapora',
+            'email' => 'agency1@gmail.com',
+            'password' => bcrypt('p$ssw#rd'),
+        ])->assignRole('agency');
+
+        \App\Models\User::factory()->create([
+            'name' => 'Agency Ganderbal',
+            'email' => 'agency2@gmail.com',
             'password' => bcrypt('p$ssw#rd'),
         ])->assignRole('agency');
     }
