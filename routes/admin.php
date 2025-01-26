@@ -25,10 +25,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
         Route::resource('user', UserController::class);
         Route::resource('role', RoleController::class);
         Route::resource('permission', PermissionController::class);
-        Route::resource('category', CategoryController::class);
-        Route::resource('subcategory', SubCateoryController::class);
-        Route::resource('collection', CollectionController::class);
-        Route::resource('product', ProductController::class);
+        // Route::resource('category', CategoryController::class);
+        // Route::resource('subcategory', SubCateoryController::class);
+        // Route::resource('collection', CollectionController::class);
+        // Route::resource('product', ProductController::class);
         Route::resource('house_type', HouseTypeController::class);
         Route::resource('house', HouseController::class);
         // Route::resource('dustbintypes', DustbinTypes::class);
